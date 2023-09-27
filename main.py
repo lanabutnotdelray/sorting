@@ -8,10 +8,15 @@ def bubble_sort(arr):
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 
-# Пример использования
-arr = [64, 34, 25, 12, 22, 11, 90]
-print("Исходный массив:", arr)
 
-bubble_sort(arr)
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
 
-print("Отсортированный массив:", arr)
+    pivot = arr[len(arr) // 2]  # Выбираем опорный элемент (можно выбирать другие способы)
+    left = [x for x in arr if x < pivot]  # Элементы меньше опорного
+    middle = [x for x in arr if x == pivot]  # Элементы равные опорному
+    right = [x for x in arr if x > pivot]  # Элементы больше опорного
+
+    # Рекурсивно сортируем подмассивы слева и справа
+    return quick_sort(left) + middle + quick_sort(right)
