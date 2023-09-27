@@ -20,17 +20,3 @@ def quick_sort(arr):
 
     # Рекурсивно сортируем подмассивы слева и справа
     return quick_sort(left) + middle + quick_sort(right)
-
-
-def insertion_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]  # Текущий элемент, который нужно вставить в правильное место
-        j = i - 1  # Индекс предыдущего элемента
-
-        # Перемещаем элементы больше key на одну позицию вперед
-        while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
-            j -= 1
-
-        # Вставляем key в правильное место
-        arr[j + 1] = key
